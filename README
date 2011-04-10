@@ -1,0 +1,45 @@
+estimates camera matrix, lens distortion coefficients of IR and RGB camera
+as well as extrinsic stereo calibration including rotation and translation 
+between sensor and essential- plus fundamental matrix.
+
+requires openCV 2.2!
+
+uses a planar b/w chessboard pattern as calibration object. you can simply
+print one your and and glue it onto a paperboard to improve the results.
+just be sure to adjust the following constants in the code:
+patternSize, patternTileWidth, patternTileWidth
+
+depth image acquistion is not used for the calibration! only raw IR and
+RGB images are used. as the structured light pattern of the IR projector
+may trouble the pattern detection it is highly recommended to simply
+cover the projector (leftmost lens) of the kinect. in this case you have
+to provide other IR light sources. sunlight is just perfect but also some
+lamps (usually not energy saving lamps) emmit a decent amount of IR light. 
+you have to experiment a little bit. 
+
+for pattern detection and tracking, the 16 bit IR image needs to be 
+quantized down to 8 bits. use the alpha slider to optimize the brightness
+of the target image!
+
+key mapping:
+
+		'i'				switch to IR mode (calibrate IR camera)
+
+		'r'				switch to RGB mode (calibrate RGB camera)
+
+  	'q'				switch to stereo mode (stereo calibration)
+							requires IR and RGB camera to be calibrated well!
+		
+		't'				toggles calibration pattern tracking mode
+
+		SPACE			captures a view and calibrates based on all already
+							captured views
+		
+		's'				saves calibration data (calib.xml)
+
+		'l'				loads calibration data (calib.xml)
+
+TODOs:
+		
+  	- figure out why results are still very poor (at least for me)
+  	- better feedback of stereo calibration quality (depth+IR overlay)
