@@ -15,11 +15,19 @@ may trouble the pattern detection it is highly recommended to simply
 cover the projector (leftmost lens) of the kinect. in this case you have
 to provide other IR light sources. sunlight is just perfect but also some
 lamps (usually not energy saving lamps) emmit a decent amount of IR light. 
-you have to experiment a little bit. 
+you have to experiment a little bit.
+
+there are three calibration modes: IR, RGB and stereo. in IR and RGB the
+image sensors are calibrated individually. before stereo, IR and RGB 
+calibration need to be finished successfully.
 
 for pattern detection and tracking, the 16 bit IR image needs to be 
 quantized down to 8 bits. use the alpha slider to optimize the brightness
 of the target image!
+
+for a successful calibration you will need to capture A LOT of views. 
+i achieved some decent results with 50 views (from lots of perspectives)
+of the default opencv calibration pattern (8x6 corners) for each calibration mode.
 
 key mapping:
 
@@ -39,7 +47,7 @@ key mapping:
 
 		'l'				loads calibration data (calib.xml)
 
-TODOs:
-		
-  	- figure out why results are still very poor (at least for me)
-  	- better feedback of stereo calibration quality (depth+IR overlay)
+TODOs:		
+
+  	- better feedback of overall calibration quality (depth+IR overlay)
+  	- determine the projection matrix: DEPTH -> RGB
