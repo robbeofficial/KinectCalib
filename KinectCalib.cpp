@@ -670,11 +670,10 @@ int main() {
 
 					//imshow("thresh" , thresh);
 				}
-
-				imshow("depthMat8", depthMat8);
-				imshow("rgbMat", rgbMat);
 	
 				// DEBUG
+//				imshow("depthMat8", depthMat8);
+//				imshow("rgbMat", rgbMat);
 //				Mat rgbTest(480, 640, CV_8UC1);
 //				rgbTest.setTo(Scalar(0,0,0));
 //				rgbMat.copyTo(rgbTest, depthMat16Calib < 1000 & depthMat16Calib > 0);
