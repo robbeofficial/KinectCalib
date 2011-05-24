@@ -52,3 +52,6 @@ key mapping:
 TODOs:		
 
   	- determine the projection matrix: DEPTH -> RGB
+
+Notes:
+        - the reprojection error calculation appears to be wrong using opencv 2.1
